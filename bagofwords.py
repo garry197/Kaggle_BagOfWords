@@ -30,21 +30,17 @@ for i in range(0,len(test['review'])):
 
 
 
-
-
-from sklearn.feature_extraction.text import CountVectorizer
-cv = CountVectorizer(analyzer='word',stop_words=None,max_features=10000)
-x=cv.fit_transform(final_test).toarray()
-
-
-
 from sklearn.feature_extraction.text import CountVectorizer
 cv = CountVectorizer(analyzer='word',stop_words=None,max_features=10000)
 train_x=cv.fit_transform(final).toarray()
 
 
-y=train.drop('review',axis=1)
-y.drop('id',axis=1,inplace=True)
+from sklearn.feature_extraction.text import CountVectorizer
+cv = CountVectorizer(analyzer='word',stop_words=None,max_features=10000)
+x=cv.transform(final_test).toarray()
+
+
+
 
 from sklearn.ensemble import RandomForestClassifier
 
